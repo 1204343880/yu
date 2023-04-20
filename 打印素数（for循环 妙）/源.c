@@ -4,7 +4,7 @@
 #include<math.h>
 
 
-
+     //   这个是 100-200 素数               如果是从1开始 记得特判1
 int main()
 {
 	int i = 0;

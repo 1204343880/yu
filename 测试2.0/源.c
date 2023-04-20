@@ -235,32 +235,459 @@
 //
 
 
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int year = 0;
+//
+//
+//
+//	for (year = 1000; year < 2001; year++)
+//	{
+//		// 里面肯定非整年
+//
+//		if (year % 4 == 0 && year % 100 != 0)
+//		{
+//			printf("%d ", year);
+//		}
+//
+//		if (year % 100 == 0 && year % 400 == 0)
+//		{
+//			printf("%d ", year);
+//		}
+//
+//
+//	}
+//
+//
+//
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int x = 0;
+//	scanf("%d", &x);
+//
+//	if (x < 1)
+//	{
+//		printf("%d", a);
+//	}
+//
+//	else if(x >=1 && x<10)
+//	{
+//		printf("%d", 2 * x - 1);
+//	}
+//
+//	else
+//	{
+//		printf("%d", 3x - 11);
+//	}
+//}
+
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	if (a >= 90 && a <= 100)
+//	{
+//		printf("A");
+//	}
+//	else if (a >= 80 && a <= 89)
+//	{
+//		printf("B");
+//	}
+//	else if (a >= 70 && a <= 79)
+//	{
+//		printf("C");
+//	}
+//	else if (a >= 60 && a <= 69)
+//	{
+//		printf("D");
+//	}
+//	else if (a >= 0 && a <= 59)
+//	{
+//		printf("E");
+//	}
+//	else
+//	{
+//		printf("成绩输入错误");
+//	}
+//}
+
+//
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	if (a <= 100 && a >= 0)
+//	{
+//		switch (a / 10)
+//		{
+//		case 10:
+//		case 9:
+//			printf("A");
+//			break;
+//		case 8:
+//			printf("B");
+//			break;
+//		case 7:
+//			printf("C");
+//			break;
+//		case 6:
+//			printf("D");
+//			break;
+//		default:
+//			printf("E");
+//			break;
+//		}
+//
+//	}
+//	else
+//	{
+//		printf("成绩输入错误");
+//	}
+//}
+//
+//#include  <stdio.h>
+//void main()
+//{
+//	double  x, y;
+//
+//	printf("Enter x:");
+//	scanf("%lf", x);
+//	if (x != 0)
+//	{
+//		y = 1 / x;
+//	}
+//	else
+//	{
+//		y = 0;
+//	}
+//	printf("f(%.2f) = %.1f\n", x, y);
+//}
+
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int kilo = 0;
+//	int money = 0;
+//	scanf("%d", &kilo);
+//
+//	if (kilo < 20)
+//	{
+//		printf("0\n 您不需要支付任何钱");
+//	}
+//	else if (kilo < 40 && kilo >= 20)
+//	{
+//		kilo -= 20;
+//		money = kilo * 2;
+//		printf("您需要额外支付%d元", money);
+//
+//	}
+//	else
+//	{
+//		//俩思路 一种是先口算算出来前40kg （√）   第二种麻烦点 ，一点点写出来
+//
+//		money = 20;
+//		kilo -= 40;
+//		money += kilo * 5;
+//		printf("您需要额外支付%d元", money);
+//	}
+//}
+
+//
+////看到这个题 让我想起来通讯增删查改了  可以用枚举变量和函数减少代码量的吧 但忘了
+////  后面再去想一想
+//
+//
+////给题目多写一步   当输入不在四则运算符里面的时候
+//#include<stdio.h>
+//
+//int main()
+//{
+//	double a = 0.0;
+//	double b = 0.0;
+//	char c = 0;
+//	double sum = 0.0;
+//	scanf("%lf,%lf%c", &a, &b, &c);
+//
+//		if (c == '+')
+//		{
+//			sum = a + b;
+//
+//		}
+//		else if (c == '-')
+//		{
+//			sum = a - b;
+//		}
+//		else if (c == '*')
+//		{
+//			sum = a * b;
+//		}
+//		else if (c == '/')
+//		{
+//			sum = a / b;
+//		}
+//		else
+//		{
+//			printf("该程序不支持此算法");
+//		}
+//		printf("%.1lf", sum);
+//
+//}
+
+//#include<stdio.h>
+//
+//int main()
+//{
+//	char a = 0;
+//	printf("请输入首字母 且必须大写:");
+//	scanf("%c", &a);
+//
+//	if (a == 'M')
+//	{
+//		printf("是周一");
+//	}
+//
+//	else if (a == 'T')
+//	{
+//		printf("仅输入一个字母无法判断 请输入第二个字母：");
+//		scanf("%c", &a);
+//
+//		if (a == 'U')
+//		{
+//			printf("是周二");
+//		}
+//		else if (a == 'H')
+//		{
+//			printf("是周四");
+//		}
+//		else
+//		{
+//			printf("输入了错误字母");
+//		}
+//	}
+//
+//	else if (a == 'W')
+//	{
+//		printf("是周三");
+//	}
+//
+//	else if (a == 'F')
+//	{
+//		printf("是周五");
+//	}
+//
+//	else if (a == 'S')
+//	{
+//		printf("仅输入一个字母无法判断 请输入第二个字母：");
+//		scanf("%c", &a);
+//
+//		if (a == 'A')
+//		{
+//			printf("是周六");
+//		}
+//		else if (a == 'U')
+//		{
+//			printf("是周日");
+//		}
+//		else
+//		{
+//			printf("输入了错误字母");
+//		}
+//	}
+//
+//	else
+//	{
+//		printf("输入了错误字母");
+//	}
+//
+//}
+
+
+//
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int year = 0;
+//	int month = 0;
+//	int day = 0; 
+//	int i = 0;
+//	//这里创建数组 后面计算天数方便很多   留一个0是因为 1月不用加；    但其实arr[12]用不到  因为不可能有机会加上12月
+//	int arr1[13] = { 0,31,28,31,30,31,30,31,31,30,30,30,31 };
+//
+//	printf("格式为： 年 月 日 （每个数值空格一下）:");
+//		scanf("%d %d %d", &year, &month, &day);
+//
+//
+//		if ((year % 4 == 0 && year % 100 != 0 ) || (year % 100 == 0 && year % 400 == 0)) //闰年的判断条件
+//		{
+//			//闰年 2月是29天
+//			arr1[2] += 1;
+//		}
+//
+//		for (i < 0; i < month; i++)
+//		{
+//			day += arr1[i];
+//		}
+//		
+//		printf("%d", day);
+//
+//
+//
+//	return 0;
+//}
+//
+//////
+//#include<stdio.h>
+//void main()
+//{
+//	char let1, let2;
+//	printf("请输入第一个字母:");
+//
+//	scanf_s("%c", &let1);
+//	switch (let1)
+//	{
+//	case 'm':printf("monday"); break;
+//	case 't':printf("请输入第二个字母:");
+//		scanf_s("%c", &let2);
+//		if (let2 = getchar() == 'u')
+//		{
+//			printf("\ntuesday");
+//
+//		}
+//		if (let2 =getchar() == 'h')
+//		{
+//			printf("\nthurday");
+//		}
+//		break;
+//	case 'w':printf("wednesday"); break;
+//	case 'f':printf("friday"); break;
+//	case 's':printf("请输入第二个字母:");
+//		scanf_s("%c", &let2);
+//		if (let2 = getch() == 'a')
+//		{
+//			printf("\nsaturday");
+//		}
+//		if (let2 = getch() == 'u')
+//		{
+//			printf("\nsunday");
+//		}
+//		break;
+//	}
+//
+//}
+//// 
+////#define  _CRT_SECURE_NO_WARNINGS  1
+////#pragma warning(disable:6031)
+////
+////#include<stdio.h>
+////	  //     switch语句会方便很多
+////int main()
+////{
+////	char a = 0;
+////	printf("请输入首字母 且必须大写:");
+////	scanf("%c", &a);
+////
+////	if (a == 'M')
+////	{
+////		printf("是周一");
+////	}
+////
+////	else if (a == 'T')
+////	{
+////		printf("仅输入一个字母无法判断 请输入第二个字母：");
+////		getchar();
+////		scanf("%c", &a);
+////
+////		if (a == 'U')
+////		{
+////			printf("是周二");
+////		}
+////		else if (a == 'H')
+////		{
+////			printf("是周四");
+////		}
+////		else
+////		{
+////			printf("输入了错误字母");
+////		}
+////	}
+////
+////	else if (a == 'W')
+////	{
+////		printf("是周三");
+////	}
+////
+////	else if (a == 'F')
+////	{
+////		printf("是周五");
+////	}
+////
+////	else if (a == 'S')
+////	{
+////		printf("仅输入一个字母无法判断 请输入第二个字母：");
+////		scanf("%c", &a);
+////
+////		if (a == 'A')
+////		{
+////			printf("是周六");
+////		}
+////		else if (a == 'U')
+////		{
+////			printf("是周日");
+////		}
+////		else
+////		{
+////			printf("输入了错误字母");
+////		}
+////	}
+////
+////	else
+////	{
+////		printf("输入了错误字母");
+////	}
+////
+////}
+
+
+//
+//#define  _CRT_SECURE_NO_WARNINGS  1
+//#pragma warning(disable:6031)
+
+
+//                                        编写程序，要求输入x，计算并输出y值。    那个分段函数
+
 #include<stdio.h>
 
 int main()
 {
-	int year = 0;
+	int x = 0;
+	scanf("%d", &x);
 
-
-
-	for (year = 1000; year < 2001; year++)
+	if (x < 1)
 	{
-		// 里面肯定非整年
-
-		if (year % 4 == 0 && year % 100 != 0)
-		{
-			printf("%d ", year);
-		}
-
-		if (year % 100 == 0 && year % 400 == 0)
-		{
-			printf("%d ", year);
-		}
-
-
+		printf("%d", x);
 	}
 
+	else if (x >= 1 && x < 10)
+	{
+		printf("%d", 2 * x - 1);
+	}
 
-
-	return 0;
+	else
+	{
+		printf("%d", 3*x - 11);
+	}
 }
