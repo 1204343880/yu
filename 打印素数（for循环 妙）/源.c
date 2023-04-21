@@ -10,7 +10,8 @@ int main()
 	int i = 0;
 	int a = 2;
 	int b = 0;
-
+	
+	//这个地方可以但没那么好
 	b = sqrt(200);
 	for (i = 100; i < 201; i++)
 	{
@@ -42,4 +43,33 @@ int main()
 	}
 
 	return 0;
+}
+
+
+//可以输入的那种
+#include <math.h>
+#include <stdio.h>
+void  main()
+{
+	int m, n, i, j, k, sum;
+	sum = 0;
+	scanf("%d %d", &m, &n);
+
+	for (i = m; i <= n; i++)
+	{
+		k = sqrt(i);
+
+		for (j = 2; j <= k; j++)
+		{
+			if (i % j == 0)
+				break;
+		}
+
+		if (j > k)
+		{
+			sum += i;
+			printf("非素数 is: %d\n", i);
+		}
+	}
+	printf("Sum is: %d\n", sum);
 }

@@ -669,25 +669,93 @@
 
 //                                        编写程序，要求输入x，计算并输出y值。    那个分段函数
 
-#include<stdio.h>
+//
+//#include<stdio.h>
+//
+//int a = 20;  //全局变量
+//int main()
+//{
+//	int a = 10;  //局部变量
+//	printf("%d\n", a);
+//}
+
+
+
+//
+//#include<stdio.h>
+//
+//int main()
+//{
+//
+//	int a = 0;
+//	int b = 0;
+//	int sum = 0;
+//
+//	// 可以输入两个变量   
+//scanf("%d %d", &a, &b);
+//
+//sum = a + b;  //变量可以运算
+//
+//return 0;
+//}
+
+//#include <stdio.h>
+//
+//int main()
+//
+//{
+//    int arr[4] = { 0 };
+//    int i = 0;
+//    int max = 0;
+//
+//    for (i = 0; i < 4; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//
+//        static max = arr[0];
+//        if (arr[i] > max)
+//        {
+//            max = arr[i];
+//        }
+//    }
+//
+//    printf("%d", max);
+//
+//    return 0;
+//}
+
+
+//
+//
+//
+//#include<stdio.h>
+//
+//int main()
+//{
+//	enum DAY
+//	{
+//		MON,
+//		TUE=0, 
+//		WED, 
+//		THU, 
+//		FRI, 
+//		SAT, 
+//		SUN
+//	};
+//
+//	printf("%d\n", MON);
+//	printf("%d\n", TUE);
+//	printf("%d\n", WED);
+//	
+//	return 0;
+//}
+//
+//
+
+
+#include <stdio.h>
 
 int main()
 {
-	int x = 0;
-	scanf("%d", &x);
 
-	if (x < 1)
-	{
-		printf("%d", x);
-	}
-
-	else if (x >= 1 && x < 10)
-	{
-		printf("%d", 2 * x - 1);
-	}
-
-	else
-	{
-		printf("%d", 3*x - 11);
-	}
 }
