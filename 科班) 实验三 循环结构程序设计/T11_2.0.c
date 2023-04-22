@@ -29,14 +29,15 @@ int main()
 			mem1 = mem1 * 10 + a % 10;
 			a /= 10;
 		}
+
 		sqr = mem1*mem1;
 		mem2 = 0;
+
 		while (sqr != 0)
 		{
 			mem2 = mem2 * 10 + sqr % 10;
 			sqr /= 10;
 		}
-		sqr = i * i;
 		if ( (i*i) == mem2)
 		{
 			printf("%d ", i);
