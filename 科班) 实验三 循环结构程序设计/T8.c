@@ -1,8 +1,8 @@
-//#define  _CRT_SECURE_NO_WARNINGS  1
-//#pragma warning(disable:6031)
-///*输入自然数n，将n分解为质因子连乘的形式输出，例如，输入756，则程序运行后，输出结果显示为756=2*2*3*3*3*7。*/
-//
-//
+#define  _CRT_SECURE_NO_WARNINGS  1
+#pragma warning(disable:6031)
+/*输入自然数n，将n分解为质因子连乘的形式输出，例如，输入756，则程序运行后，输出结果显示为756=2*2*3*3*3*7。*/
+
+
 //#include <math.h>
 //#include <stdio.h>
 //	void  main()

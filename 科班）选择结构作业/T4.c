@@ -10,72 +10,72 @@
 
 //方法1 if语句   很复杂 需要一一列举
 
-#include<stdio.h>
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//		if (a >= 90 && a <= 100)
+//		{
+//			printf("A");
+//        }
+//		else if (a >= 80 && a <= 89)
+//		{
+//			printf("B");
+//		}
+//		else if (a >= 70 && a <= 79)
+//		{
+//			printf("C");
+//		}
+//		else if (a >= 60 && a <= 69)
+//		{
+//			printf("D");
+//		}
+//		else if (a >= 0 && a <= 59)
+//		{
+//			printf("E");
+//		}
+//		else
+//		{
+//			printf("成绩输入错误");
+//		}
+//}
 
-int main()
-{
-	int a = 0;
-	scanf("%d", &a);
-		if (a >= 90 && a <= 100)
-		{
-			printf("A");
-        }
-		else if (a >= 80 && a <= 89)
-		{
-			printf("B");
-		}
-		else if (a >= 70 && a <= 79)
-		{
-			printf("C");
-		}
-		else if (a >= 60 && a <= 69)
-		{
-			printf("D");
-		}
-		else if (a >= 0 && a <= 59)
-		{
-			printf("E");
-		}
-		else
-		{
-			printf("成绩输入错误");
-		}
-}
 
-
-//方法二 switch方法
-
-#include<stdio.h>
-
-int main()
-{
-	int a = 0;
-	scanf("%d", &a);
-	if (a <= 100 && a >= 0)
-	{
-		switch (a / 10)
-		{
-		case 10:
-		case 9:
-			printf("A");
-			break;
-		case 8:
-			printf("B");
-			break;
-		case 7:
-			printf("C");
-			break;
-		case 6:
-			printf("D");
-			break;
-		default:
-			printf("E");
-			break;
-		}
-
-	}
-	else
-	{
-		printf("成绩输入错误");
-	}
-}
+////方法二 switch方法
+//
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	if (a <= 100 && a >= 0)
+//	{
+//		switch (a / 10)
+//		{
+//		case 10:
+//		case 9:
+//			printf("A");
+//			break;
+//		case 8:
+//			printf("B");
+//			break;
+//		case 7:
+//			printf("C");
+//			break;
+//		case 6:
+//			printf("D");
+//			break;
+//		default:
+//			printf("E");
+//			break;
+//		}
+//
+//	}
+//	else
+//	{
+//		printf("成绩输入错误");
+//	}
+//}

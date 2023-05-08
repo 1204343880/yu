@@ -1,5 +1,5 @@
-//#define  _CRT_SECURE_NO_WARNINGS  1
-//#pragma warning(disable:6031)
+#define  _CRT_SECURE_NO_WARNINGS  1
+#pragma warning(disable:6031)
 ///*哥德巴赫猜想中写到，一个充分大的偶数（大于等于6），它可以分解为两个素数（质数）的和。请将输入的偶数n ，分解为两个素数的所有可能打印出来。
 //  素数就是只能被1和自身整除的正整数。
 //
@@ -43,9 +43,10 @@
 //				{
 //					printf("可以分成%d+%d\n", i, num);
 //				}
+//
 //			}
 //		}
-//
+
 //
 //
 //

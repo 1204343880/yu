@@ -1,7 +1,7 @@
 //#define  _CRT_SECURE_NO_WARNINGS  1
 //#pragma warning(disable:6031)
 //
-///*
+/////*
 //#include<stdio.h>
 //int main()
 //{
@@ -51,10 +51,10 @@
 //	printf("外循环：%d次，内循环：%d次\n", num1, num2);
 //	printf("sum is:%d\n", sum);
 //}
-//
-//
-////（4）
-////无变化
+
+
+//（4）
+//无变化
 //
 //#include<stdio.h>
 //main()
