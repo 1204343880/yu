@@ -143,26 +143,58 @@
 //}
 
 
-#include <stdio.h>
+//#include <stdio.h>
+//
+//int count(int n)
+//{
+//    static int bit; //这个就是static出了这个函数不会变成最开始的值
+//    if (n == 0)
+//        return 0;
+//    bit++;
+//    count(n / 10);
+//
+//    return bit;
+//}
+//
+//int main()
+//{
+//    int m;
+//    int count(int n);
+//    scanf("%d", &m);
+//
+//    printf("%d\n", count(m));
+//    return 0;
+//}
+//
 
-int count(int n)
-{
-    static int bit; //这个就是static出了这个函数不会变成最开始的值
-    if (n == 0)
-        return 0;
-    bit++;
-    count(n / 10);
+//#include<stdio.h>
+//
+//int add(int a, int b)
+//{
+//	return a + b;
+//}
+//
+//int main()
+//{
+//	int i1 = 0;
+//	int i2 = 0;
+//	int c = 0;
+//	scanf("%d %d", &i1, &i2);
+//	c = add(i1, i2);
+//	printf("%d", c);
+//}
 
-    return bit;
-}
+#include<stdio.h>
 
 int main()
 {
-    int m;
-    int count(int n);
-    scanf("%d", &m);
+	int i = 0;
+	char arr[10] = { 1, 2, 3, 4 };
 
-    printf("%d\n", count(m));
-    return 0;
+	while (i<10)
+	{
+		printf("%d",arr[i]);
+		i++;
+	}
+
 }
-

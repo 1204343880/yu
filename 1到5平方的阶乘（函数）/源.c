@@ -3,16 +3,11 @@
 #include<stdio.h>
 
 //½×³Ë
-double f2(int end)
+double f2(int end, int arr[4])
 {
-	double sum1 = 1;
-	int j = 0;
-	for (j = 1; j <= end; j++)
-	{
-		sum1*= j;
-	}
+	arr[3] = 10;
 
-	return sum1;
+	return 0;
 }
 
 int main()
@@ -20,11 +15,11 @@ int main()
 	double sum = 0;
 	int i = 0;
 	int m = 0;
-	scanf("%d", &m);
-	for (i = 1; i <= m; i++)
-	{
-		sum += f2(i);
-	}
+	int arr[4] = { 0,1,2,3 };
 
+	sum = f2(i, arr[4]);
+
+
+	printf("%d", arr[3]);
 	printf("%.0f", sum);
 }

@@ -750,12 +750,169 @@
 //	return 0;
 //}
 //
+////
+//
+//
+//#include <stdio.h>
+//
+//int main()
+//{
+//
+//}
+
+//
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int a[3][4] = { 0 };
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 4; j++)
+//		{
+//			scanf("%d", &a[i][j]);
+//		}
+//	}
+//	int min = a[0][0];
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 4; j++)
+//		{
+//			if (a[i][j] < min)
+//			{
+//				min = a[i][j];
+//			}
+//		}
+//	}
+//	printf("min= %d", min);
+//	return 0;
+//}
+
+//#include <stdio.h>
+//int a[20][20];
+//
+//void hengqiuhe(int s, int N, int a1[20][20]) { //横行求和
+//	int sum = 0;
+//	for (int i = 0; i < N; i++)
+//		sum += a[s][i];
+//	a1[s][N] = sum;
+//}
+//
+//void shuqiuhe(int s, int N, int a1[20][20]) { //竖列求和
+//	int sum = 0;
+//	for (int i = 0; i < N; i++)
+//		sum += a[i][s];
+//	a1[N][s] = sum;
+//}
+//
+//void zhuqiuhe(int N, int a1[20][20]) { //主对角线求和
+//	int sum = 0;
+//	for (int i = 0; i < N; i++)
+//		sum += a[i][i];
+//	a1[N][N] = sum;
+//}
+//
+//int main() {
+//	int  N, sum = 0, rsum1, rsum2, duijiao, n = 0;
+//	scanf("%d", &N);
+//	for (int i = 0; i < N; i++)//此处是为了输入数组
+//		for (int j = 0; j < N; j++)
+//			scanf("%d", &a[i][j]);
+//
+//	for (int i = 0; i < N; i++)//此处是求出一个值作为参照值，这个参考值为次对角线的和
+//		sum += a[i][N - 1 - i];
+//
+//	for (int i = 1; i < N; i++) { //将每一行每一列的值都计算出来储存在行列末尾最后一个
+//		hengqiuhe(i, N, a[20][20]);
+//		shuqiuhe(i, N, a[20][20]);
+//	}
+//	zhuqiuhe(N, a[19][19]);//计算主对角线的和
+//	duijiao = a[N][N];
+//
+//
+//	for (int i = 0; i < N; i++) {//判断是否相等，如果相等则n=0，如果不相等则大于0
+//		rsum1 = a[N][i];
+//		rsum2 = a[i][N];
+//		if (rsum1 == rsum2 && rsum2 == duijiao && duijiao == sum) {
+//		}
+//		else {
+//			n++;
+//		}
+//	}
+//	if (n)//判断进行输出
+//		printf("Yes");
+//	else
+//		printf("No");
+//	return 0;
+//}
+//
+//#include <stdio.h>
+//int a[20][20];
+//
+//void hengqiuhe(int s, int N, int a[20][20]) { //横行求和
+//	int sum = 0;
+//	for (int i = 0; i < N; i++)
+//		sum += a[s][i];
+//	a[s][N] = sum;
+//}
+//
+//void shuqiuhe(int s, int N, int a[20][20]) { //竖列求和
+//	int sum = 0;
+//	for (int i = 0; i < N; i++)
+//		sum += a[i][s];
+//	a[N][s] = sum;
+//}
+//
+//void zhuqiuhe(int N, int a[20][20]) { //主对角线求和
+//	int sum = 0;
+//	for (int i = 0; i < N; i++)
+//		sum += a[i][i];
+//	a[N][N] = sum;
+//}
+//
+//int main() {
+//	int  N, sum = 0, rsum1, rsum2, duijiao, n = 0;
+//	scanf("%d", &N);
+//	for (int i = 0; i < N; i++)//此处是为了输入数组
+//		for (int j = 0; j < N; j++)
+//			scanf("%d", &a[i][j]);
+//
+//	for (int i = 0; i < N; i++)//此处是求出一个值作为参照值，这个参考值为次对角线的和
+//		sum += a[i][N - 1 - i];
+//
+//	for (int i = 1; i < N; i++) { //将每一行每一列的值都计算出来储存在行列末尾最后一个
+//		hengqiuhe(i, N, a);
+//		shuqiuhe(i, N, a);
+//	}
+//	zhuqiuhe(N, a);//计算主对角线的和
+//	duijiao = a[N][N];
+//
+//
+//	for (int i = 0; i < N; i++) {//判断是否相等，如果相等则n=0，如果不相等则大于0
+//		rsum1 = a[N][i];
+//		rsum2 = a[i][N];
+//		if (rsum1 == rsum2 && rsum2 == duijiao && duijiao == sum) {
+//		}
+//		else {
+//			n++;
+//		}
+//	}
+//	if (n)//判断进行输出
+//		printf("Yes");
+//	else
+//		printf("No");
+//	return 0;
+//}
 //
 
 
-#include <stdio.h>
+#include<stdio.h>
 
 int main()
 {
+	char arr[] = { 'b', 'i', 't' };
+
+
+		printf("%d",strlen(arr));
 
 }
