@@ -26,12 +26,16 @@ void CheckCapacity(contact* pc)
 void LoadContact(contact* pc)
 {
 	assert(pc);
-	FILE* pfRead = fopen("Contact.txt", "r");
+	FILE* pfRead = fopen("system.txt", "rb");
 	if (pfRead == NULL)
 	{
-		perror("LoadContact");
-		exit(0);
+		perror("Loadsystem");
+		return;
 	}
+
+	Peoinfo tmp = { 0 };
+
+
 	int i = 0;
 	while (fgetc(pfRead) != '\n');//将文件指针移动到表头末尾
 	int leap = ftell(pfRead);//计算文件指针的偏移量
@@ -47,6 +51,7 @@ void LoadContact(contact* pc)
 		pc->count++;//每读取一个信息，联系人增加一个
 		i++;
 	}
+
 	fclose(pfRead);
 	pfRead = NULL;
 }

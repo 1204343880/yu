@@ -5,49 +5,50 @@
 #include"system.h"
 //信息管理系统相关的实现
 
-//动态版本
-int Initsystem(MIS* pc)
+//实现密码登录
+bool login()
 {
-	pc->count = 0;//通讯录初始人数
-	pc->data = (Peoinfo*)calloc(DEFAULT_SZ, sizeof(Peoinfo));//申请一块初始化的空间（大小为DEFAULT_SZ）
-	if (pc->data == NULL)
+	char arr[17] = "123456";
+	char password[17] = "0";
+	for (int i1 = 0; i1 < 3; i1++)
 	{
-		perror("InitContact");//没有开辟成功，结束程序
-		exit(0);
-	}
-	pc->capacity = DEFAULT_SZ;//申请完成后，将通讯录容量赋值为初始大小
-}
-//静态版本
+		int i = 0;
+		printf("请输入管理员密码(还剩%d次机会)>:", 3 - i1); 
+		char ch;
 
-//void Addsystem(MIS* pc)
-//{
-//	assert(pc);
-//	if (pc->count == 100)
-//	{
-//		printf("通讯录已满，无法添加新的人的信息");
-//	}
-//	else
-//	{
-//		printf("请输入姓名:> ");                                                                                                 
-//
-//
-//																																					
-//		scanf("%s", (pc->data[pc->count]).name);                                                                                  
-//
-//		printf("请输入学号:> ");
-//		scanf("%s", (pc->data[pc->count]).sno);                                                                                       
-//		printf("请输入英语成绩:> ");                                                                                                          
-//		scanf("%d", &(pc->data[pc->count]).eng);
-//		printf("请输入数学成绩:> ");
-//		scanf("%d", &(pc->data[pc->count]).math);
-//		printf("请输入专业课成绩:> ");
-//		scanf("%d", &(pc->data[pc->count]).pro);
-//		//计算总分
-//
-//		(pc->data[pc->count]).sum = (pc->data[pc->count]).eng + (pc->data[pc->count]).math + (pc->data[pc->count]).pro;
-//		(pc->count)++;
-//	}
-//}
+		while ((ch =getch()) != '\r')
+		{
+	
+
+			if (ch == '\b')
+			{
+				//理解需要加深
+				putchar('\b');
+				putchar(' ');
+				putchar('\b');
+			}
+			else
+			{
+				password[i] = ch;
+				i++;
+				putchar('*');
+			}
+		
+		}
+
+		if (0 == strcmp(password, arr))
+		{
+			return 1;
+			break;
+		}
+		else
+		{
+			printf("\n密码错误。\n");
+		}
+	}
+
+	return 0;
+}
 
 void Checksystem(MIS* pc)
 {
@@ -64,32 +65,86 @@ void Checksystem(MIS* pc)
 		{
 			pc->data = ptr;//将realloc申请到的空间给pc->data
 			pc->capacity += INC_SZ;
-			printf("增容成功！\n");
 		}
 	}
+}
+
+//读取文件
+void Loadsystem(MIS* pc)
+{
+	assert(pc);
+	FILE* pfRead = fopen("system.txt", "r");
+	if (pfRead == NULL)
+	{
+		perror("Loadsystem");
+	}
+
+	Peoinfo tmp = { 0 };
+	while (1 == fread(&tmp, sizeof(Peoinfo), 1, pfRead))
+	{
+		Checksystem(pc);
+		pc->data[pc->count] = tmp;
+		pc->count++;
+	}
+
+	fclose(pfRead);
+	pfRead = NULL;
+}
+
+
+//动态版本
+int Initsystem(MIS* pc)
+{
+	pc->count = 0;//通讯录初始人数
+	pc->data = (Peoinfo*)calloc(DEFAULT_SZ, sizeof(Peoinfo));//申请一块初始化的空间（大小为DEFAULT_SZ）
+	if (pc->data == NULL)
+	{
+		perror("InitContact");//没有开辟成功，结束程序
+		exit(0);
+	}
+	pc->capacity = DEFAULT_SZ;//申请完成后，将通讯录容量赋值为初始大小
+
+	//读取文件
+	Loadsystem(pc);
 }
 
 //动态版本
 void Addsystem(MIS* pc)
 {
 	assert(pc);
-	   Checksystem(pc);
 
-		printf("请输入姓名:> ");
-		scanf("%s", pc->data[pc->count].name);
-		printf("请输入学号:> ");
-		scanf("%s", pc->data[pc->count].sno);
-		printf("请输入英语成绩:> ");
-		scanf("%d", &(pc->data[pc->count]).eng);
-		printf("请输入数学成绩:> ");
-		scanf("%d", &(pc->data[pc->count]).math);
-		printf("请输入专业课成绩:> ");
-		scanf("%d", &(pc->data[pc->count]).pro);
-		//计算总分
-		(pc->data[pc->count]).sum = (pc->data[pc->count]).eng + (pc->data[pc->count]).math + (pc->data[pc->count]).pro;
-		(pc->count)++;
+	Checksystem(pc);
 
-}
+	int a = 0;
+	char findsno[15] = { 0 };
+	printf("请输入学生学号:> ");
+	scanf("%s", findsno);
+	a = Findbysno2(pc, findsno);
+
+	if (a == -1)
+	{
+		printf("此学号还未曾录入，可以正常录入。\n");
+
+	   printf("请重新输入学生学号:> ");
+	   scanf("%s", pc->data[pc->count].sno);
+		   printf("请输入学生姓名:> ");
+		   scanf("%s", pc->data[pc->count].name);
+		   printf("请输入学生英语成绩:> ");
+		   scanf("%d", &(pc->data[pc->count]).eng);
+		   printf("请输入学生数学成绩:> ");
+		   scanf("%d", &(pc->data[pc->count]).math);
+		   printf("请输入学生专业课成绩:> ");
+		   scanf("%d", &(pc->data[pc->count]).pro);
+		   //计算总分
+		   (pc->data[pc->count]).sum = (pc->data[pc->count]).eng + (pc->data[pc->count]).math + (pc->data[pc->count]).pro;
+		   (pc->count)++;
+	}
+	else
+	{
+		printf("此学号已存在，添加失败。\n");
+	}
+	   }
+
 
 
 
@@ -99,7 +154,7 @@ void Delsystem(MIS* pc)
                                                                    
 	if (pc->count == 0)
 	{
-		printf("通讯录还未添加一个人，无法删除人的信息\n");
+		printf("通讯录还未添加一个人，无法删除人的信息。\n");
 	}
 	else
 	{
@@ -111,7 +166,7 @@ void Delsystem(MIS* pc)
 
 		if (a == -1)
 		{
-			printf("此人不存在，无法删除\n");
+			printf("此人不存在，无法删除。\n");
 		}
 
 		else
@@ -124,7 +179,7 @@ void Delsystem(MIS* pc)
 				pc->data[i2] = pc->data[i2 + 1];
 			}
 			pc->count--;
-			printf("删除成功\n");
+			printf("删除成功。\n");
 		}
 
 	}
@@ -153,11 +208,13 @@ void Findbysno1(MIS* pc)
 
 	if (pc->count == 0)
 	{
-		printf("这个程序还一个人的信息都没有\n");
+		printf("这个程序还一个人的信息都没有。\n");
 	}
 
 	else
-		printf("请输入学号:>");                                                                                                                                
+
+		printf("请输入学号:>");         
+	scanf("%s", &findsno);
 	for (int i1 = 0; i1 < pc->count; i1++)
 	{
 		//如果成立则返回0（strcmp函数）
@@ -180,7 +237,7 @@ void Findbysno1(MIS* pc)
 		}
 
 		if (i1 == pc->count - 1)
-			printf("此人不存在，无法查找信息\n");
+			printf("此人不存在，无法查找信息。\n");
 
 	}
 }
@@ -205,13 +262,14 @@ void Modifysystem(MIS* pc)
 	else
 	{
 		int a = 0;
-		printf("如果只改个别信息请输入：1，如果全改请输入：2\n");
+		printf("请输入(如果只改个别信息请输入：1，如果全改请输入：2):>");
 		scanf("%d", &a);
 
 		if (a == 1)
 		{
 			menu3();
 			int b = 0;
+			printf("请输入:>");
 			scanf("%d", &b);
 
 			switch (b)
@@ -257,46 +315,111 @@ void Modifysystem(MIS* pc)
 
 			printf("请输入姓名：");
 			scanf("%s", pc->data[linshi].name);
-			printf("\n");
 			printf("请输入学号：");
 			scanf("%s", pc->data[linshi].sno);
-			printf("\n");
 			printf("请输入英语成绩：");
 			scanf("%d", &pc->data[linshi].eng);
-			printf("\n");
 			printf("请输入数学成绩：");
 			scanf("%d", &pc->data[linshi].math);
-			printf("\n");
 			printf("请输入专业课成绩：");
 			scanf("%d", &pc->data[linshi].pro);
-			printf("\n");
 		}
 		else
 		{
-			printf("输入错误选项，已退出更改程序！");
+			printf("输入错误选项，已退出更改功能！");
 		}
 	}
 }
 
 void menu3()
 {
+	printf("*******************************************************************************\n");
+	printf("*******************************************************************************\n");
+	printf("******                                  请选择：                        *******\n");
+	printf("******     1.修改姓名                                   2.修改学号     *******\n");
+	printf("******                                                                  *******\n");
+	printf("******      3.修改英语成绩                               4.修改数学成绩 *******\n");
+	printf("******                                                                  *******\n");
+	printf("******      5.修改专业课成绩                             6.修改总分     *******\n");
+	printf("******                                                                  *******\n");
+	printf("*******************************************************************************\n");
+	printf("*******************************************************************************\n");
+}
+
+
+void menusort()
+{
 	printf("***************************************************************************************************\n");
 	printf("***************************************************************************************************\n");
 	printf("******                                        请选择：                                      *******\n");
-	printf("******                1.修改姓名                                     2.修改学号             *******\n");
+	printf("******                A.按姓名升序                           B.按姓名降序                   *******\n");
 	printf("******                                                                                      *******\n");
-	printf("******                3.修改英语成绩                      4.修改数学成绩                    *******\n");
+	printf("******                C.按学号升序                           D.按学号降序                   *******\n");
 	printf("******                                                                                      *******\n");
-	printf("******                5.修改专业课成绩                      6.修改总分                      *******\n");
+	printf("******                E.按英语升序                           F.按英语降序                   *******\n");
 	printf("******                                                                                      *******\n");
+	printf("******                G.按数学升序                           H.按数学降序                   *******\n");
+	printf("******                                                                                      *******\n");
+	printf("******                I.按专业课升序                         J.按专业课降序                 *******\n");
+	printf("******                                                                                      *******\n");
+	printf("******                K.按总分升序                           L.按总分降序                   *******\n");
 	printf("***************************************************************************************************\n");
 	printf("***************************************************************************************************\n");
 }
 
 
-int cmp_by_sno(const void* e1, const void* e2)
+int cmp_by_name1(const void* e1, const void* e2)
 {
 	return strcmp(((Peoinfo*)e1)->name, ((Peoinfo*)e2)->name);
+}
+
+int cmp_by_name2(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e2)->name, ((Peoinfo*)e1)->name);
+}
+
+
+int cmp_by_sno1(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e1)->sno, ((Peoinfo*)e2)->sno);
+}
+
+int cmp_by_sno2(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e2)->sno, ((Peoinfo*)e1)->sno);
+}
+
+
+int cmp_by_eng1(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e1)->eng, ((Peoinfo*)e2)->eng);
+}
+
+int cmp_by_eng2(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e2)->eng, ((Peoinfo*)e1)->eng);
+}
+
+
+int cmp_by_math1(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e1)->math, ((Peoinfo*)e2)->math);
+}
+
+int cmp_by_math2(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e2)->math, ((Peoinfo*)e1)->math);
+}
+
+
+int cmp_by_pro1(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e1)->math, ((Peoinfo*)e2)->math);
+}
+
+int cmp_by_pro2(const void* e1, const void* e2)
+{
+	return strcmp(((Peoinfo*)e2)->math, ((Peoinfo*)e1)->math);
 }
 
 
@@ -305,8 +428,52 @@ void	Sortsystem(MIS* pc)
 {
 	//此处用到qsort函数 排序
 
-	qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_sno);
-	printf("排序成功\n");
+	menusort();
+	getchar();
+	char  choice = 0;
+	printf("请输入有效字符(大小写均可):>");
+	scanf("%c", &choice);
+	choice = tolower(choice);
+	switch (choice)
+	{
+	case'a':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_name1);
+		break;
+	case'b':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_name2);
+		break;
+	case'c':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_sno1);
+		break;
+	case'd':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_sno2);
+		break;
+	case'e':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_eng1);
+		break;
+	case'f':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_eng2);
+		break;
+	case'g':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_eng2);
+		break;
+	case'h':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_eng2);
+		break;
+	case'i':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_math1);
+		break;
+	case'j':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_math2);
+		break;
+	case'k':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_pro1);
+		break;
+	case'l':
+		qsort(pc->data, pc->count, sizeof(Peoinfo), cmp_by_pro2);
+		break;
+	}
+	printf("排序成功!\n");
 }
 
 
@@ -335,15 +502,17 @@ void Showsystem(MIS* pc)
 	}
 }
 
+//保存程序
 void Savesystem(const MIS* pc)
 {
 	//断言保证程序的有效性
 	assert(pc);
 
-	FILE* pfwrite = fopen("contact.txt", "wb");
+	FILE* pfwrite = fopen("system.txt", "wb");
 	if (pfwrite == NULL)
 	{
-		perror ("SaveContact");
+		perror ("Savesystem");
+		return;
 	}
 
 	//写文件-二进制形式写
@@ -355,5 +524,55 @@ void Savesystem(const MIS* pc)
 
 	fclose(pfwrite);
 	pfwrite = NULL;
+
 }
 
+
+void Destroysystem(MIS* pc)
+{
+	free(pc->data);
+	pc->data = NULL;
+}
+
+
+void Staticsystem(MIS* pc)
+{
+	int alleng = 0, allmath = 0, allsum = 0;
+	int aveeng = 0;
+	int avemath = 0;
+	int avesum = 0;
+	int maxeng = 0, maxmath = 0, maxsum = 0;
+	for (int i = 0; i < pc->count; i++)
+	{
+		alleng += pc->data[i].eng;
+		allmath += pc->data[i].math;
+		allsum += pc->data[i].sum;
+
+		if (pc->data[i].eng > maxeng)
+		{
+			maxeng = pc->data[i].eng;
+		}
+
+		if (pc->data[i].math > maxmath)
+		{
+			maxmath = pc->data[i].math;
+		}
+
+		if (pc->data[i].sum > maxsum)
+		{
+			maxsum = pc->data[i].sum;
+		}
+
+	}
+
+	aveeng = alleng / pc->count;
+	avemath = allmath / pc->count;
+	avesum = allsum / pc->count;
+
+	
+
+	printf("%10s%15s%15s%15s%15s%15s%15s\n","总人数", "英语平均分", "数学平均分", "总平均分","英语最高分","数学最高分","总分最高分");
+	printf("%10d%15d%15d%15d%15d%15d%15d\n", pc->count, aveeng, avemath, avesum,maxeng,maxmath,maxsum);
+
+
+}

@@ -1,14 +1,21 @@
 #pragma once
 
+//信息管理系统相关的声明
 #include<stdio.h>   //为了用输入输出函数
 #include<string.h>  //为了用 memset
 #include<assert.h>  //为了用  assert
 #include<stdlib.h>
+#include<stdbool.h> //为了使用布尔函数
+#include< ctype.h >  //转化小写字母
 
 #define MOREN 3
 #define DEFAULT_SZ 3//增加容量的个数
 #define INC_SZ 2//通讯录初始容量
-//信息管理系统相关的声明
+
+bool login();
+
+
+
 
 typedef struct Peoinfo      //个人信息
 {
@@ -61,8 +68,14 @@ void Showsystem(MIS* pc);
 //排序学生信息
 void Sortsystem(MIS* pc);
 
+//统计学生信息
+void Staticsystem(MIS* pc);
+
 //保存成绩系统到文件
 void Savesystem(const MIS* pc);
 
-//加载成员信息
+//加载程序
 void Loadsystem(MIS* pc);
+
+//销毁程序
+void Destroysystem(MIS* pc);
