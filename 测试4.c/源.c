@@ -207,35 +207,153 @@
 二分查找
 我从思路上就不是很清晰
 */
-#include<stdio.h>
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int arr[10] = { 0,1,2,3,4,5,6,7,8,9 };
+//	int a = 0;
+//	int centre = 0;
+//	int right = 0;
+//	int left = 0;
+//	scanf("%d", &a);
+//	
+//	left = 0;
+//	right = 9;
+//	for (int i = 0; i < 10; i++)//循环应该多少次呢？用什么循环？     
+//	{
+//		centre = (left + right) / 2;
+//		if (arr[centre] > a)
+//		{
+//			right = centre-1;
+//		}
+//		else if (arr[centre] < a)
+//		{
+//			left = centre+1;
+//		}
+//		else
+//		{
+//			printf("已经找到是%d\n",arr[centre]);
+//		}
+//	}
+//
+//	return 0;
+//}
 
-int main()
-{
-	int arr[10] = { 0,1,2,3,4,5,6,7,8,9 };
-	int a = 0;
-	int centre = 0;
-	int right = 0;
-	int left = 0;
-	scanf("%d", &a);
-	
-	left = 0;
-	right = 9;
-	for (int i = 0; i < 10; i++)//循环应该多少次呢？用什么循环？     
-	{
-		centre = (left + right) / 2;
-		if (arr[centre] > a)
-		{
-			right = centre-1;
-		}
-		else if (arr[centre] < a)
-		{
-			left = centre+1;
-		}
-		else
-		{
-			printf("已经找到是%d\n",arr[centre]);
-		}
-	}
+//
+//#include <stdio.h>
+//int main()
+//{
+//	int day = 0;
+//	scanf("%d", &day);
+//	switch (day)
+//	{
+//	case 1:
+//			printf("星期一\n");
+//			break;
+//		case 2:
+//			printf("星期二\n");
+//			break;
+//		case 3:
+//			printf("星期三\n");
+//			break;
+//		case 4:
+//			printf("星期四\n");
+//			break;
+//		case 5:
+//			printf("星期五\n");
+//			break;
+//		case 6:
+//			printf("星期六\n");
+//			break;
+//		case 7:
+//			printf("星期天\n");
+//			break;
+//	}
+//	return 0;
+//}
 
-	return 0;
-}
+//#include <stdio.h>
+//int main()
+//{
+//	int i = 1;
+//	while (i <= 10)
+//	{
+//		if (i == 5)
+//			break;
+//printf("%d ", i);
+//i = i + 1;
+// }
+// return 0;
+//}
+
+
+//#include <stdio.h>
+//int main()
+//{
+//	int i = 1;
+//	while (i <= 10)
+//	{
+//		if (i == 5)
+//			continue;
+//		printf("%d ", i);
+//		i = i + 1;
+//	}
+//	return 0;
+//}
+
+//#include <stdio.h>
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1; i <= 10; i++)
+//	{
+//		if (i == 5)
+//			break;
+//	}
+//
+//	printf("%d ", i);
+//
+//	return 0;
+//}
+//
+
+
+
+//#include <stdio.h>
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1; i <= 10; i++)
+//	{
+//		if (i == 5)
+//			continue;
+//		printf("%d ", i);
+//	}
+//	return 0;
+//}
+
+//#include <stdio.h>
+//int main()
+//{
+//	//代码1
+//	for (;;)
+//	{
+//		printf("hehe\n");
+//	}
+//}
+//	//for循环中的初始化部分，判断部分，调整部分是可以省略的，但是不建议初学时省略，容易导致问题。
+//
+//#include <stdio.h>
+//int main()
+//{
+//    int x, y;
+//    for (x = 0, y = 0; x < 2 && y < 5; ++x, y++)
+//    {
+//        printf("hehe\n");
+//    }
+//    return 0;
+//}
+//
+
+
