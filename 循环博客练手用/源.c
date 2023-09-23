@@ -207,85 +207,85 @@
 //}
 
 
-//#include<stdio.h>
-//#include <stdlib.h>     /* srand, rand */
-//#include <time.h>       /* time */
-//
-//void menu()
-//{
-//	printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
-//	printf("xxxxx          menu      xxxxx\n");
-//	printf("xxxxx         1.paly     xxxxx\n");
-//	printf("xxxxx         1.exit     xxxxx\n");
-//	printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
-//}
-//
-//void play()
-//{
-//	                                                                //RAND_MAX;
-//
-//	                                                                //time_t 多次转定义可以发现他是long long型
-//	srand((unsigned int) time(NULL));       //生成随机数    直接用rand生成的数不够随机，第一次运行代码和第二次一样顺序   用srand设置起点  
-//	                                                               //要给srand传递一个变化的值 并且可以发现计算机的时间是时刻发生变化的    time函数可以返回一个时间戳
-//	                                                               //null 空指针是随机值
-//	int n = 0;
-//	printf("游戏开始，请输入你认为的数（1~100）");
-//	int randdom = (rand()%100 + 1) ;                 //万事俱备 就差生成随机数这一步
-//	while (1)
-//	{
-//		printf(":>");
-//		scanf("%d", &n);
-//
-//		if (n == randdom)
-//		{
-//			printf("恭喜你猜对了\n");
-//			break;
-//		}
-//		else if (n > randdom)
-//		{
-//			printf("猜大了\n");
-//		}
-//		else
-//		{
-//			printf("猜小了\n");
-//		}
-//	}
-//}
-//
-//void end()  //这个还不能用exit 与库函数某个函数重合定义
-//{
-//	printf("欢迎您下次使用本游戏，再见！");   //break不能在函数里面 影响主函数里面的循环
-//}
-//
-//int main()
-//{
-//	int a = 0;
-//	int b = 0;
-//
-//
-//	while (1)
-//	{
-//		menu();
-//		printf("请输入功能>");
-//		scanf("%d", &a);
-//		if (a == 1)
-//		{
-//			play();
-//		}
-//		else if (a == 0)
-//		{
-//			end();
-//			break;
-//		}
-//
-//		else
-//		{
-//			printf("输入了无效数字，请重新输入\n");
-//		}
-//	}
-//
-//	return 0;
-//}
+#include<stdio.h>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
+void menu()
+{
+	printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+	printf("xxxxx          menu      xxxxx\n");
+	printf("xxxxx         1.paly     xxxxx\n");
+	printf("xxxxx         1.exit     xxxxx\n");
+	printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+}
+
+void play()
+{
+	                                                                //RAND_MAX;
+
+	                                                                //time_t 多次转定义可以发现他是long long型
+	srand((unsigned int) time(NULL));       //生成随机数    直接用rand生成的数不够随机，第一次运行代码和第二次一样顺序   用srand设置起点  
+	                                                               //要给srand传递一个变化的值 并且可以发现计算机的时间是时刻发生变化的    time函数可以返回一个时间戳
+	                                                               //null 空指针是随机值
+	int n = 0;
+	printf("游戏开始，请输入你认为的数（1~100）");
+	int randdom = (rand()%100 + 1) ;                 //万事俱备 就差生成随机数这一步
+	while (1)
+	{
+		printf(":>");
+		scanf("%d", &n);
+
+		if (n == randdom)
+		{
+			printf("恭喜你猜对了\n");
+			break;
+		}
+		else if (n > randdom)
+		{
+			printf("猜大了\n");
+		}
+		else
+		{
+			printf("猜小了\n");
+		}
+	}
+}
+
+void end()  //这个还不能用exit 与库函数某个函数重合定义
+{
+	printf("欢迎您下次使用本游戏，再见！");   //break不能在函数里面 影响主函数里面的循环
+}
+
+int main()
+{
+	int a = 0;
+	int b = 0;
+
+
+	while (1)
+	{
+		menu();
+		printf("请输入功能>");
+		scanf("%d", &a);
+		if (a == 1)
+		{
+			play();
+		}
+		else if (a == 0)
+		{
+			end();
+			break;
+		}
+
+		else
+		{
+			printf("输入了无效数字，请重新输入\n");
+		}
+	}
+
+	return 0;
+}
 
 
 //#include<stdio.h>
@@ -311,29 +311,29 @@
 //…
 //error :
 //if (disaster)
-
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-
-
-
-int main()
-{
-	system("shutdown -s -t 60");
-	printf("请输入我是猪，不然你的电脑会在60s后自动关机\n");
-	char arr[30] = "我是猪";
-	char arr2[20] = { 0 };
-
-	again:
-	scanf("%s", arr2);
-	if (strcmp(arr, arr2) == 0)
-	{
-		printf("已取消关机,嘻嘻");
-		system("shutdown -a");
-	}
-	else
-	{
-		goto again;
-	}
-}
+//
+//#include<stdio.h>
+//#include<string.h>
+//#include<stdlib.h>
+//
+//
+//
+//int main()
+//{
+//	system("shutdown -s -t 60");
+//	printf("请输入我是猪，不然你的电脑会在60s后自动关机\n");
+//	char arr[30] = "我是猪";
+//	char arr2[20] = { 0 };
+//
+//	again:
+//	scanf("%s", arr2);
+//	if (strcmp(arr, arr2) == 0)
+//	{
+//		printf("已取消关机,嘻嘻");
+//		system("shutdown -a");
+//	}
+//	else
+//	{
+//		goto again;
+//	}
+//}
