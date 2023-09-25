@@ -357,3 +357,31 @@
 //
 
 
+//#include<stdio.h>
+//
+//int main()
+//{
+//	char a = 0;
+//
+//	while (1)
+//	{
+//		scanf("%c", &a);
+//
+//		printf("%c\n", a);
+//
+//	}
+//
+//
+//}
+//
+//#include <stdio.h>
+//int main()
+//{
+//	int arr[10] = { 1,2, 3,4,5 };
+//	printf("%p\n", arr);
+//	printf("%p\n", &arr[0]);
+//	printf("%d\n", *arr);
+//	//Êä³ö½á¹û
+//	return 0;
+//}
+
