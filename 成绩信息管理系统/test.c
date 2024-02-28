@@ -44,6 +44,7 @@ int main()
 			menu();
 			printf("ÇëÊäÈë¹¦ÄÜ£º");
 			scanf("%d", &input);
+
 			if(input>=0 && input<=7)
 			{
 				switch (input)
