@@ -1,5 +1,3 @@
-#define  _CRT_SECURE_NO_WARNINGS  1
-#pragma warning(disable:6031)
 
 //#include<stdio.h>
 //
@@ -146,33 +144,33 @@
 //}
 
 //递归
-#include<stdio.h>
-
-int fac(int number)
-{
-	//先排除 0和1 两种情况
-	if (number == 1 || number == 2)
-	{
-		return 1;
-	}
-	else
-	{
-		return fac(number - 1)+fac(number-2);
-	}
-
-}
-
-int main()
-{
-	int Number = 0;
-	int flag = 0;
-	//如果想实现多组输入 还需要一些限制条件 可我又忘了 等下再回顾下
-
-	while (scanf("%d", &Number) != EOF)
-	{
-		flag = fac(Number);
-		printf("%d\n", flag);
-	}
-
-	return 0;
-}
+//#include<stdio.h>
+//
+//int fac(int number)
+//{
+//	//先排除 0和1 两种情况
+//	if (number == 1 || number == 2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return fac(number - 1)+fac(number-2);
+//	}
+//
+//}
+//
+//int main()
+//{
+//	int Number = 0;
+//	int flag = 0;
+//	//如果想实现多组输入 还需要一些限制条件 可我又忘了 等下再回顾下
+//
+//	while (scanf("%d", &Number) != EOF)
+//	{
+//		flag = fac(Number);
+//		printf("%d\n", flag);
+//	}
+//
+//	return 0;
+//}
