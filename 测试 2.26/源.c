@@ -174,3 +174,26 @@
 //
 //	return 0;
 //}
+
+#include<stdio.h>
+
+int main()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	float d = 0; //double也行 精度问题
+
+
+	printf("请输入第一个数：");
+	scanf("%d", &a);
+	printf("请输入第二个数：");
+	scanf("%d", &b);
+	printf("请输入第三个数：");
+	scanf("%d", &c);
+
+	d = a + b + c;  //第一个错误就是 没用浮点数 不然计算结果只能用整数
+	printf("a在三个数中所占百分比为：%d/%d = %.1d" ,a ,b ,a/b);     //其次几个占位符（你所写的%d）就应该有几个后面的量（常量或变量）
+
+	return 0;
+}
